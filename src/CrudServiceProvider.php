@@ -61,8 +61,6 @@ class CrudServiceProvider extends ServiceProvider
             $this->checkLicenseCodeExists();
         }
 
-        $this->checkLicenseCodeExists();
-
         // use the vendor configuration file as fallback
         $this->mergeConfigFrom(
             __DIR__.'/config/backpack/crud.php',
