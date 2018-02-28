@@ -3,8 +3,8 @@
 namespace Backpack\CRUD;
 
 use Route;
-use Illuminate\Support\ServiceProvider;
 use Prologue\Alerts\Facades\Alert;
+use Illuminate\Support\ServiceProvider;
 
 class CrudServiceProvider extends ServiceProvider
 {
@@ -126,8 +126,8 @@ class CrudServiceProvider extends ServiceProvider
      */
     private function checkLicenseCodeExists()
     {
-        if (!env('BACKPACK_LICENSE')) {
-            Alert::add("warning", "<strong>You're using unlicensed software.</strong> Please <a target='_blank' href='http://backpackforlaravel.com'>purchase a license code</a> to hide this message.");
+        if (! env('BACKPACK_LICENSE')) {
+            Alert::add('warning', "<strong>You're using unlicensed software.</strong> Please <a target='_blank' href='http://backpackforlaravel.com'>purchase a license code</a> to hide this message.");
         }
     }
 }
