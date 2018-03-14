@@ -4,9 +4,9 @@
     <label>{!! $field['label'] !!}</label>
     <select
         name="{{ $field['name'] }}@if (isset($field['allows_multiple']) && $field['allows_multiple']==true)[]@endif"
-        style="width: 100%"
-        data-field-toggle="{{ json_encode($field['hide_when_not']) }}"
-        @include('crud::inc.field_attributes', ['default_class' =>  'form-control select2_from_array select2_from_array_toggle '])
+        style="width: 100%" 
+        @if (isset($field['show_when'])) data-field-toggles="{{ json_encode($field['show_when']) }}" @endif
+        @include('crud::inc.field_attributes', ['default_class' =>  'form-control select2_from_array select2_from_array_toggle'])
         @if (isset($field['allows_multiple']) && $field['allows_multiple']==true)multiple @endif
         >
 
@@ -47,11 +47,14 @@
     @push('crud_fields_scripts')
     <!-- include select2 js-->
     <script src="{{ asset('vendor/adminlte/plugins/select2/select2.min.js') }}"></script>
+    @if (isset($field['show_when']))
+    <script src="{{ asset('vendor/backpack/crud/js/crud-field-trait-toggable.js') }}"></script>
+    @endif
     <script>
         
         jQuery(document).ready(function($) {
 
-            window.hiddenFields = window.hiddenFields || {};
+            //window.hiddenFields = window.hiddenFields || {};
 
             // trigger select2 for each untriggered select2 box
             $('.select2_from_array').each(function (i, obj) {
@@ -62,55 +65,9 @@
                     });
                 }
             });
-
-            {{-- based on @OwenMelbz toggle field. --}}
-
-            /**
-             *  Toggle function to set the visible state show() or hide() when the values sets in the toggle_when_not
-             */
-            var toggle = function( $field ) {
-
-                var hideWhenNot = $field.data('field-toggle'),
-                    value    = $field.val(),
-                    fieldSet = $field.attr('name');
-
-                hiddenFields[ fieldSet ] = hiddenFields[ fieldSet ] || [];
-
-                //typeof return a string so the === should compare to string.
-                if( typeof hideWhenNot[ value ] === "undefined" )
-                {
-                    //Loop for each values set in the HideWhenNot //may be overkill if a lots id and field.
-                    $.each( hideWhenNot, function(idx, obj){
-                        var fields = hideWhenNot[idx];
-                        $.each(fields, function(index, name){//loop through index here ?
-                            var f = $('[name="'+name+'"]').parents('.form-group');
-
-                            if( f.length ) {
-                                hiddenFields[ fieldSet ].push(f);
-                                f.hide();
-                            }
-                        });
-                    });
-                }
-                else if ( typeof hideWhenNot[ value ] !== "undefined" )
-                {
-                    $.each(hiddenFields[ fieldSet ], function(idx, field){
-                        field.show();
-                    });
-                    hiddenFields[ fieldSet ] = [];
-                }
-            };
-
-
-            // Target element with class.
-            $('select.select2_from_array_toggle').on('change', function(){
-                return toggle( $(this) );
-            });
-
-            //init, on first load.
-            $('select.select2_from_array_toggle').each(function(){
-                return toggle( $(this) );
-            });
+            @if (isset($field['show_when']))
+            $(".select2_from_array_toggle").bpToggableField();
+            @endif
         });
     </script>
     @endpush
