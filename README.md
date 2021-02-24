@@ -72,7 +72,7 @@ Alternatively, if you don't have 20 minutes right now, subscribe to our [drip em
 ## Install
 
 Installation guides:
-- [Install Backpack 4.1 on Laravel 6 or 7](https://backpackforlaravel.com/docs/4.1/installation) - recommended;
+- [Install Backpack 4.1 on Laravel 6, 7 or 8](https://backpackforlaravel.com/docs/4.1/installation) - recommended;
 - [Install Backpack 4.0 on Laravel 5.8, 6 or 7](https://backpackforlaravel.com/docs/4.0/installation) - last feature update was 21st Apr 2020;
 - [Install Backpack 3.6 on Laravel 5.8 or 6.x](https://backpackforlaravel.com/docs/3.6/installation) - last feature update was 17th Sep 2019;
 - [Install Backpack 3.5 on Laravel 5.5, 5.6, 5.7](https://backpackforlaravel.com/docs/3.5/installation) - last feature update was 27th Feb 2019;
@@ -100,10 +100,11 @@ It's _heavily_ recommended that you **[subscribe to the Backpack Newsletter](htt
 
 - [Cristian Tabacitu](http://tabacitu.ro) - creator & lead maintainer;
 - [Pedro Martins](https://github.com/pxpm) - maintainer;
+- [António Almeida](https://github.com/promatik) - maintainer;
 - [All Contributors][link-contributors]
 
 Special thanks go to:
-- [Owen Melbourne](https://github.com/OwenMelbz), [Oliver Ziegler](https://github.com/OliverZiegler), [Thomas Swonke](https://github.com/tswonke), [Catalin Tudorache](https://github.com/tumf87), [Abby Janke](https://github.com/AbbyJanke), [David Lloyd](https://github.com/lloy0076), [António Almeida](https://github.com/promatik) - A LOT of new features, bug fixing, support, feedback and code review;
+- [Owen Melbourne](https://github.com/OwenMelbz), [Oliver Ziegler](https://github.com/OliverZiegler), [Thomas Swonke](https://github.com/tswonke), [Catalin Tudorache](https://github.com/tumf87), [Abby Janke](https://github.com/AbbyJanke), [David Lloyd](https://github.com/lloy0076) - A LOT of new features, bug fixing, support, feedback and code review;
 - [Łukasz Holeczek](https://coreui.io/) - creator of CoreUI (used in Backpack v4);
 - [Abdullah Almsaeed](https://adminlte.io/) - creator of AdminLTE (used in Backpack v3);
 - [John Skoumbourdis](http://www.grocerycrud.com/) - Grocery CRUD for CodeIgniter was a big inspiration for Backpack v1 & v2;
